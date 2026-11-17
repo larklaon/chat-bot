@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ingest:dataset": "node scripts/ingest-dataset.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.0",
     "next": "^16.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -17,6 +20,7 @@
     "@types/node": "^22.15.30",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "dotenv": "18.0.10",
     "eslint": "^9.28.0",
     "eslint-config-next": "^16.4.6",
     "typescript": "^5.8.3"

@@ -98,10 +98,11 @@ kbd { margin-left: auto; padding: 3px 5px; border: 1px solid #ecefea; border-rad
 .message-row { display: flex; gap: 12px; margin: 0 0 27px; align-items: flex-start; }
 .message-user { justify-content: flex-end; }
 .message-body { min-width: 0; max-width: min(78%, 660px); }
-.message-user .message-body { display: flex; justify-content: flex-end; }
+.message-user .message-body { display: flex; flex-direction: column; align-items: flex-end; }
 .message-user .message-content { padding: 12px 16px; border-radius: 16px 5px 16px 16px; color: #fff; background: #728f75; font-size: 13px; line-height: 1.75; white-space: pre-wrap; overflow-wrap: anywhere; }
 .message-name { display: flex; align-items: baseline; gap: 8px; margin: 1px 0 8px; color: #596d58; font-size: 11px; font-weight: 700; }
 .message-name span { color: #afb3ab; font-size: 9px; font-weight: 400; }
+.message-name-user { justify-content: flex-end; color: #8a8e86; }
 .message-assistant .avatar-moa { color: #749178; background: #e9f0e7; }
 .message-assistant .message-content { color: #454a43; font-size: 13px; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; }
 .typing-indicator { display: flex; gap: 4px; align-items: center; height: 28px; }
@@ -166,4 +167,93 @@ kbd { margin-left: auto; padding: 3px 5px; border: 1px solid #ecefea; border-rad
   .suggestion-text small { font-size: 9px; }
   .enter-hint { display: none; }
   .welcome-description { margin-bottom: 17px; }
+}
+
+/* Landing page */
+.landing-shell { position: relative; display: flex; min-height: 100dvh; flex-direction: column; overflow: hidden; padding: 0 6.2vw; color: #252923; background: #fafbf8; }
+.landing-shell::before { position: absolute; top: -28%; left: -18%; width: 58vw; height: 58vw; border-radius: 50%; background: radial-gradient(circle, #e9f0e6 0, #f4f7f1 41%, transparent 72%); content: ""; pointer-events: none; }
+.landing-nav { position: relative; z-index: 1; display: flex; width: min(100%, 1280px); height: 88px; align-items: center; justify-content: space-between; margin: 0 auto; border-bottom: 1px solid #e8ebe5; }
+.landing-nav-label { color: #a1a89d; font-size: 9px; font-weight: 600; letter-spacing: .16em; }
+.landing-hero { position: relative; z-index: 1; display: grid; width: min(100%, 1280px); flex: 1; grid-template-columns: 1.02fr .98fr; align-items: center; gap: clamp(30px, 7vw, 110px); margin: 0 auto; padding: 48px 0 65px; }
+.landing-copy { grid-column: 2; grid-row: 1; max-width: 545px; padding: 20px 0; }
+.landing-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 21px; color: #7c9479; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.landing-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #88a98a; box-shadow: 0 0 0 4px #eaf1e8; }
+.landing-copy h1 { margin: 0; color: #30362f; font-family: 'Manrope', 'Noto Sans KR', sans-serif; font-size: clamp(36px, 4.55vw, 61px); font-weight: 600; letter-spacing: -3px; line-height: 1.26; }
+.landing-copy h1 span { color: #719174; }
+.landing-description { max-width: 465px; margin: 20px 0 26px; color: #82887f; font-size: 14px; line-height: 1.95; word-break: keep-all; }
+.landing-benefits { display: flex; flex-direction: column; gap: 15px; margin: 0 0 29px; }
+.landing-benefits > div { display: flex; align-items: center; gap: 12px; }
+.benefit-check { display: grid; flex: 0 0 23px; place-items: center; width: 23px; height: 23px; border-radius: 8px; color: #648568; background: #e9f0e6; font-size: 12px; font-weight: 700; }
+.landing-benefits > div > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.landing-benefits strong { color: #515a4f; font-size: 11px; font-weight: 600; }
+.landing-benefits small { color: #9da39a; font-size: 10px; }
+.google-signin-button { position: relative; display: flex; width: min(100%, 360px); height: 52px; align-items: center; justify-content: center; gap: 11px; padding: 0 15px; border: 1px solid #e3e7e0; border-radius: 11px; color: #343a33; background: #fff; box-shadow: 0 5px 18px #2b39210b; font-size: 12px; font-weight: 600; text-decoration: none; transition: border-color .18s, box-shadow .18s, transform .18s; }
+.google-signin-button:hover { border-color: #b8cbb6; box-shadow: 0 9px 22px #2b392114; transform: translateY(-1px); }
+.google-signin-button svg { position: absolute; left: 16px; }
+.button-arrow { margin-left: auto; color: #9ba699; font-size: 15px; }
+.landing-footnote { width: min(100%, 360px); margin: 10px 0 0; color: #a6aba3; text-align: center; font-size: 9px; line-height: 1.6; }
+.landing-visual { position: relative; display: grid; grid-column: 1; grid-row: 1; min-height: 460px; place-items: center; }
+.visual-ring { position: absolute; top: 50%; left: 50%; border: 1px solid #dfe8dc; border-radius: 50%; transform: translate(-50%, -50%); }
+.ring-large { width: min(37vw, 430px); aspect-ratio: 1; border-style: dashed; opacity: .72; animation: orbit 42s linear infinite; }
+.ring-small { width: min(28vw, 325px); aspect-ratio: 1; border-color: #e3ebe0; }
+.visual-glow { position: absolute; top: 50%; left: 50%; width: min(25vw, 290px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #dcebd9 0, #e8f0e5 42%, #edf3ebbb 60%, transparent 72%); transform: translate(-50%, -50%); }
+.visual-center { position: relative; z-index: 1; display: grid; width: 126px; height: 126px; place-items: center; border: 1px solid #dbe6d8; border-radius: 38px; color: #fff; background: linear-gradient(145deg, #9db79b, #6f9272); box-shadow: 0 18px 48px #66846640, inset 0 1px 0 #ffffff8c; transform: rotate(-7deg); }
+.visual-center span { font-family: 'Manrope', sans-serif; font-size: 67px; font-weight: 800; letter-spacing: -8px; transform: translate(-4px, -5px) rotate(7deg); }
+.visual-center i { position: absolute; top: 24px; right: 25px; color: #e6f2de; font-size: 15px; font-style: normal; transform: rotate(7deg); }
+.visual-spark { position: absolute; z-index: 2; display: grid; width: 39px; height: 39px; place-items: center; border: 1px solid #e1e9de; border-radius: 13px; color: #8daa8c; background: #fff; box-shadow: 0 7px 20px #39532b12; }
+.spark-a { top: 26%; left: 29%; font-size: 19px; }
+.spark-b { right: 23%; bottom: 27%; width: 33px; height: 33px; color: #c09c76; font-size: 17px; }
+.orbit-dot { position: absolute; z-index: 2; width: 9px; height: 9px; border: 2px solid #fafbf8; border-radius: 50%; background: #8faa8c; box-shadow: 0 0 0 1px #dce7d9; }
+.dot-a { top: 22%; right: 31%; }
+.dot-b { bottom: 24%; left: 25%; width: 6px; height: 6px; background: #d3ab83; }
+@keyframes orbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+.landing-footer { position: relative; z-index: 1; display: flex; width: min(100%, 1280px); min-height: 57px; align-items: center; justify-content: space-between; margin: 0 auto; border-top: 1px solid #e8ebe5; color: #a0a69c; font-size: 9px; }
+.landing-footer i { padding: 0 5px; color: #9bb198; font-style: normal; }
+.landing-footer > span:last-child { font-size: 8px; letter-spacing: .12em; }
+.auth-error-page { display: grid; min-height: 100dvh; place-items: center; padding: 24px; background: #f8faf6; }
+.auth-error-card { width: min(100%, 470px); padding: 42px; border: 1px solid #e7ebe4; border-radius: 20px; background: #fff; box-shadow: 0 20px 70px #2b39210c; text-align: center; }
+.auth-error-mark { margin: 0 auto 25px; }
+.auth-error-card h1 { margin: 0 0 12px; color: #313831; font-size: 22px; letter-spacing: -.7px; }
+.auth-error-card p:not(.landing-eyebrow) { margin: 0 0 24px; color: #81877e; font-size: 13px; line-height: 1.8; word-break: keep-all; }
+.secondary-link { color: #66876b; font-size: 12px; font-weight: 600; text-decoration: none; }
+
+/* RAG citations and account controls */
+.citation-box { margin-top: 14px; padding: 12px; border: 1px solid #e7ede5; border-radius: 10px; background: #f8faf7; }
+.citation-heading { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; color: #6e856b; font-size: 10px; font-weight: 700; }
+.citation-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.citation-chip { display: inline-flex; min-width: 0; max-width: 100%; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid #e7ebe4; border-radius: 7px; color: #5e665c; background: #fff; font-size: 9px; }
+.citation-chip small { overflow: hidden; max-width: 170px; color: #a0a69c; text-overflow: ellipsis; white-space: nowrap; }
+.citation-number { display: grid; flex: 0 0 17px; width: 17px; height: 17px; place-items: center; border-radius: 5px; color: #5d7d61; background: #eaf1e8; font-size: 9px; font-weight: 700; }
+.avatar-profile { object-fit: cover; }
+.signout-button { padding: 6px 8px; border: 1px solid #e1e6df; border-radius: 7px; color: #778174; background: #fff; font-size: 9px; cursor: pointer; }
+.signout-button:hover { border-color: #bdceba; color: #557358; }
+
+@media (max-width: 760px) {
+  .landing-shell { padding: 0 22px; }
+  .landing-nav { height: 68px; }
+  .landing-nav-label { font-size: 7px; letter-spacing: .1em; }
+  .landing-hero { grid-template-columns: 1fr; gap: 0; padding: 24px 0 35px; }
+  .landing-visual { min-height: 265px; grid-column: 1; grid-row: 1; }
+  .landing-copy { grid-column: 1; grid-row: 2; justify-self: center; padding: 0; }
+  .ring-large { width: min(70vw, 300px); }
+  .ring-small { width: min(55vw, 235px); }
+  .visual-glow { width: min(48vw, 205px); }
+  .visual-center { width: 92px; height: 92px; border-radius: 29px; }
+  .visual-center span { font-size: 52px; }
+  .spark-a { top: 16%; left: 25%; }
+  .spark-b { right: 21%; bottom: 14%; }
+  .landing-copy h1 { font-size: clamp(35px, 9vw, 48px); letter-spacing: -2px; }
+  .landing-description { margin: 15px 0 21px; font-size: 12px; }
+  .landing-benefits { gap: 12px; margin-bottom: 23px; }
+  .google-signin-button { width: 100%; }
+  .landing-footer { min-height: 46px; font-size: 8px; }
+  .landing-footer > span:last-child { font-size: 7px; }
+  .auth-error-card { padding: 32px 22px; }
+}
+
+@media (max-width: 390px) {
+  .landing-nav-label { display: none; }
+  .citation-chip { width: 100%; }
+  .citation-chip small { max-width: 105px; margin-left: auto; }
+  .signout-button { padding: 5px 6px; }
 }
